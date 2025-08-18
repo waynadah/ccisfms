@@ -1,4 +1,4 @@
-<div class="flex flex-col p-4 space-y-2">
+<div class="flex flex-col p-2 w-full space-y-2">
     <a href="{{route('student.dashboard')}}" class="group flex items-center space-x-3 px-4 py-2 rounded-md text-gray-300 hover:bg-blue-700 hover:text-white transition-all duration-200">
         <svg class="w-5 h-5 text-gray-400 group-hover:text-white" fill="none" stroke="currentColor" stroke-width="2"
             viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
@@ -6,16 +6,52 @@
         </svg>
         <span>Dashboard </span>
     </a>
+    <div class="w-full" x-data="{ openftdp: false }">
+        <div @click="openftdp = !openftdp"
+            class="group flex items-center space-x-3 px-4 py-2 rounded-md text-gray-300 hover:bg-blue-700 hover:text-white transition-all duration-200 cursor-pointer">
+            <svg class="w-5 h-5 text-gray-400 group-hover:text-white" fill="none" stroke="currentColor" stroke-width="2"
+                viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 9V7a4 4 0 0 0-8 0v2H5v14h14V9z" />
+                <path d="M12 13v4" />
+            </svg>
+            <p class="whitespace-nowrap flex items-center">
+                Financial Transactions
+                <span :class="openftdp ? 'rotate-90' : 'rotate-0'"
+                    class="ml-2 transition-transform duration-200 transform font-bold">
+                    &#8250;
+                </span>
+            </p>
 
+        </div>
 
-    <a href="{{route('student.payment_history')}}" class="group flex items-center space-x-3 px-4 py-2 rounded-md text-gray-300 hover:bg-blue-700 hover:text-white transition-all duration-200">
-        <svg class="w-5 h-5 text-gray-400 group-hover:text-white" fill="none" stroke="currentColor" stroke-width="2"
-            viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M17 9V7a4 4 0 0 0-8 0v2H5v14h14V9z" />
-            <path d="M12 13v4" />
-        </svg>
-        <span>Payment History</span>
-    </a>
+        <div x-show="openftdp" x-transition
+            class="ml-8 mt-2 border text-xs border-blue-700 bg-blue-900 rounded-md shadow-lg text-white w-auto"
+            @click.away="openftdp = false">
+            <ul class=" space-y-2">
+                <li>
+                    <a href="{{ route('student.payment_history') }}" class="block px-2  py-2 hover:bg-blue-800 rounded">
+                        &bullet; Payment History (Student)
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="block px-2  py-2 hover:bg-blue-800 rounded">
+                        &bullet; Payment Record
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="block px-2  py-2 hover:bg-blue-800 rounded">
+                        &bullet; Disbursement
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="block px-2  py-2 hover:bg-blue-800 rounded">
+                        &bullet; Expense Tracking
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
 
     <a href="#" class="group flex items-center space-x-3 px-4 py-2 rounded-md text-gray-300 hover:bg-blue-700 hover:text-white transition-all duration-200">
         <svg class="w-5 h-5 text-gray-400 group-hover:text-white" fill="none" stroke="currentColor" stroke-width="2"

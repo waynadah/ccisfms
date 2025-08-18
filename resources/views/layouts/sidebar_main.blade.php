@@ -10,8 +10,8 @@
     <!-- Alpine.js CDN -->
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <!-- Your custom CSS -->
-     <!-- Include Font Awesome (if not already) -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Include Font Awesome (if not already) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
     <link rel="stylesheet" href="{{ asset('css/hcalsb.css') }}">
 </head>
@@ -21,21 +21,13 @@
     <div class="relative flex h-full z-50" style="">
         <!-- Sidebar -->
         <div @click="open = !open" :class="open ? 'block' : 'hidden'" class="absolute inset-0 z-2" style=""></div>
-        <div :class="open ? 'translate-x-0' : '-translate-x-full'" class="fixed z-40 inset-y-0 left-0 w-60 bg-blue-900 transform  text-white transition-transform duration-300 ease-in-out md:relative md:translate-x-0 md:block shadow-xl">
+        <div :class="open ? 'translate-x-0' : '-translate-x-full'" class="fixed z-40 inset-y-0 left-0 w-70 bg-blue-900 transform  text-white transition-transform duration-300 ease-in-out md:relative md:translate-x-0 md:block shadow-xl">
             <div class="p-6 flex flex-col text-center ">
                 <img src="{{ asset('ccis_logo.jpg') }}" class="w-[150px] h-[150px] mx-auto rounded-full border border-white" alt="">
                 <p>Welcome to Website</p>
                 <h1 class="text-3xl font-bold text-center font-serif text-gray-300">CCIS FMS</h1>
             </div>
-            @if (auth()->user()->role == 0)
-            @include('sidebar_role.student.sidebar_list')
-            @elseif (auth()->user()->role == 1)
-            @include('sidebar_role.admin.sidebar_list')
-            @elseif (auth()->user()->role == 2)
-            @include('sidebar_role.student.sidebar_list')
-            @elseif (auth()->user()->role == 3)
-            @include('sidebar_role.student.sidebar_list')
-            @endif
+            @include('layouts.sidebar_list')
         </div>
 
         <div class="flex-1 flex flex-col">
