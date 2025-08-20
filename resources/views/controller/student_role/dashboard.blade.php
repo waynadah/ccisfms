@@ -64,31 +64,32 @@
                 </button>
             </div>
 
-           <div id="modalGcash" class="hidden fixed inset-0 z-50">
-        <div class="absolute inset-0 bg-gray-900 bg-opacity-60 backdrop-blur-sm"></div>
-        <div
-            class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-6 rounded-xl shadow-lg z-10 text-center w-[90%] md:w-[400px]">
-            <span onclick="document.getElementById('modalGcash').classList.add('hidden')"
-                class="absolute top-1 right-4 text-3xl text-gray-600 cursor-pointer hover:text-gray-800">
-                &times;
-            </span>
-            <h5 class="text-2xl font-semibold text-gray-800 mb-4">
-                Pay via <span class="bg-blue-900 pb-1 text-white px-2 rounded">GCash</span>
-            </h5>
-            <p class="text-base text-gray-600 mb-3">Scan the QR code below to pay using GCash.</p>
-            <img src="{{ asset('gcash_qr.jpg') }}" alt="GCash QR Code"
-                class="mx-auto w-1/2 h-1/2 object-cover rounded-xl shadow-lg">
-            <div class="flex flex-col justify-center items-center">
-                <input type="text" placeholder="Input your Gcash Name" class="border w-full mb-2 rounded-lg p-2 bg-gray-100">
-                <input type="text" placeholder="Input your Gcash Reference Number" class="border w-full rounded-lg p-2 bg-gray-100">
-                <span class="text-[10px] text-center text-yellow-600">
-                    Warning! Invalid reference numbers may incur penalties and added charges.
-                </span>
-                <button class="bg-blue-800 px-4 py-2 rounded-full m-2 text-xs text-white w-1/2">Submit Payment</button>
-            </div>
-        </div>
+            <div id="modalGcash" class="hidden fixed inset-0 z-50">
+                <div class="absolute inset-0 bg-gray-900 bg-opacity-60 backdrop-blur-sm"></div>
+                <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-6 rounded-xl shadow-lg z-10 text-center w-[90%] md:w-[400px]">
 
-    </div>
+                    <span onclick="document.getElementById('modalGcash').classList.add('hidden')"
+                        class="absolute top-1 right-4 text-3xl text-gray-600 cursor-pointer hover:text-gray-800">
+                        &times;
+                    </span>
+                    <h5 class="text-2xl font-semibold text-gray-800 mb-4">
+                        Pay via <span class="bg-blue-900 pb-1 text-white px-2 rounded">GCash</span>
+                    </h5>
+                    <p class="text-base text-gray-600 mb-3">Scan the QR code below to pay using GCash.</p>
+                    <img src="{{ asset('gcash_qr.jpg') }}" alt="GCash QR Code"
+                        class="mx-auto w-1/2 h-1/2 object-cover rounded-xl shadow-lg">
+                    <div class="flex flex-col justify-center items-center">
+                        <input type="text" placeholder="Input your Gcash Name" class="border w-full mb-2 rounded-lg p-2 bg-gray-100">
+                        <input type="text" placeholder="Input your Gcash Reference Number" class="border w-full rounded-lg p-2 bg-gray-100">
+                        <span class="text-[10px] text-center text-yellow-600">
+                            Warning! Invalid reference numbers may incur penalties and added charges.
+                        </span>
+                        <button class="bg-blue-800 px-4 py-2 rounded-full m-2 text-xs text-white w-1/2">Submit Payment</button>
+                    </div>
+                    
+                </div>
+
+            </div>
         </div>
 
     </div>

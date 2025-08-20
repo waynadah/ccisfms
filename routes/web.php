@@ -7,9 +7,11 @@ use Illuminate\Support\Facades\Session; // built in
 //Students
 Route::group(['middleware' => 'auth', 'prefix' => 'student'], function () {
     Route::get('/dashboard', [App\Http\Controllers\dashboardController::class, 'index'])->middleware(['auth'])->name('student.dashboard');
-Route::view('/payment_history', 'controller.student_role.payment_history')->middleware(['auth'])->name('student.payment_history');
+    Route::view('/payment_history', 'controller.student_role.payment_history')->middleware(['auth'])->name('student.payment_history');
 });
-
+Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
+    Route::get('/pos', [App\Http\Controllers\posController::class, 'index'])->middleware(['auth'])->name('admin.pos');
+});
 Route::get('/notification', [App\Http\Controllers\notificationController::class, 'index'])->middleware(['auth'])->name('student.notification');
 
 
