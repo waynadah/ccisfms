@@ -1,177 +1,268 @@
 @extends('layouts.sidebar_main')
-@section('header')
-<h2 class="text-2xl font-semibold">New Payments</h2>
-@endsection
-@section('content')
-<div class="container mx-auto p-6">
-    <div class="bg-white rounded-md grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div class="bg-gray-800">&nbsp;</div>
-        <div class="flex flex-col bg-transparent p-4 space-y-4 text-white">
-            <button class="flex justify-center items-center bg-green-600 p-2 py-3 font-bold rounded-lg">
-                <div class="flex items-center space-x-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" id="Payments--Streamline-Outlined-Material" height="18" width="18">
-                        <desc>
-                            Payments Streamline Icon: https://streamlinehq.com
-                        </desc>
-                        <path fill="currentColor" d="M13.5 13.5c-0.83335 0 -1.54165 -0.29165 -2.125 -0.875S10.5 11.33335 10.5 10.5s0.29165 -1.54165 0.875 -2.125S12.66665 7.5 13.5 7.5s1.54165 0.29165 2.125 0.875S16.5 9.66665 16.5 10.5s-0.29165 1.54165 -0.875 2.125S14.33335 13.5 13.5 13.5Zm-8 3.5c-0.4125 0 -0.765585 -0.1469 -1.05925 -0.44075C4.146915 16.2656 4 15.9125 4 15.5V5.5c0 -0.4125 0.146915 -0.765665 0.44075 -1.0595C4.734415 4.146835 5.0875 4 5.5 4h16c0.4125 0 0.76565 0.146835 1.0595 0.4405 0.29365 0.293835 0.4405 0.647 0.4405 1.0595v10c0 0.4125 -0.14685 0.7656 -0.4405 1.05925C22.26565 16.8531 21.9125 17 21.5 17H5.5Zm2.5 -1.5h11c0 -0.7 0.24165 -1.29165 0.725 -1.775C20.20835 13.24165 20.8 13 21.5 13V8c-0.7 0 -1.29165 -0.24165 -1.775 -0.725C19.24165 6.79165 19 6.2 19 5.5H8c0 0.7 -0.24165 1.29165 -0.725 1.775C6.79165 7.75835 6.2 8 5.5 8v5c0.7 0 1.29165 0.24165 1.775 0.725 0.48335 0.48335 0.725 1.075 0.725 1.775Zm12 4.5H2.5c-0.4125 0 -0.765585 -0.1469 -1.05925 -0.44075C1.146915 19.2656 1 18.9125 1 18.5V7h1.5v11.5h17.5v1.5Z" stroke-width="0.5"></path>
-                    </svg>
-                    <p> Cash Payments</p>
-                </div>
-            </button>
-            <button class="flex justify-center items-center bg-blue-600 p-2 py-3 font-bold rounded-lg">
-                <div class="flex items-center space-x-2">
-                    <div class="rounded-full bg-white text-blue-600 w-6 h-6 flex items-center justify-center">G</div>
-                    <p> GCash Payments</p>
-                </div>
-            </button>
-            <div class="flex-1 flex justify-end flex-col min-h-[100px]">
-                <button class="flex justify-center items-center bg-transparent hover:bg-purple-600 hover:text-white text-purple-600 border border-purple-600 p-2 py-3 font-bold rounded-lg">
-                    <div class="flex items-center space-x-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" id="List-Alt-Add--Streamline-Outlined-Material" height="24" width="24">
 
-                            <path fill="currentColor" d="M17.5 23v-3h-3v-1.5h3v-3h1.5v3h3v1.5h-3v3h-1.5ZM4.5 21c-0.4 0 -0.75 -0.15 -1.05 -0.45 -0.3 -0.3 -0.45 -0.65 -0.45 -1.05V4.5c0 -0.4 0.15 -0.75 0.45 -1.05C3.75 3.15 4.1 3 4.5 3h15c0.4 0 0.75 0.15 1.05 0.45 0.3 0.3 0.45 0.65 0.45 1.05v9.7c-0.22765 -0.132 -0.4679 -0.24 -0.72075 -0.324 -0.25285 -0.084 -0.5126 -0.15935 -0.77925 -0.226V4.5H4.5v15h8c0.01665 0.26665 0.04235 0.52435 0.077 0.773 0.0345 0.2485 0.09215 0.49085 0.173 0.727H4.5Zm3 -4.15c0.2 0 0.375 -0.075 0.525 -0.225 0.15 -0.15 0.225 -0.325 0.225 -0.525s-0.075 -0.375 -0.225 -0.525c-0.15 -0.15 -0.325 -0.225 -0.525 -0.225s-0.375 0.075 -0.525 0.225c-0.15 0.15 -0.225 0.325 -0.225 0.525s0.075 0.375 0.225 0.525c0.15 0.15 0.325 0.225 0.525 0.225Zm0 -4.1c0.2 0 0.375 -0.075 0.525 -0.225 0.15 -0.15 0.225 -0.325 0.225 -0.525s-0.075 -0.375 -0.225 -0.525c-0.15 -0.15 -0.325 -0.225 -0.525 -0.225s-0.375 0.075 -0.525 0.225c-0.15 0.15 -0.225 0.325 -0.225 0.525s0.075 0.375 0.225 0.525c0.15 0.15 0.325 0.225 0.525 0.225Zm0 -4.1c0.2 0 0.375 -0.075 0.525 -0.225 0.15 -0.15 0.225 -0.325 0.225 -0.525s-0.075 -0.375 -0.225 -0.525c-0.15 -0.15 -0.325 -0.225 -0.525 -0.225s-0.375 0.075 -0.525 0.225c-0.15 0.15 -0.225 0.325 -0.225 0.525s0.075 0.375 0.225 0.525c0.15 0.15 0.325 0.225 0.525 0.225Zm3.3 4.1h6.1v-1.5H10.8v1.5Zm0 -4.1h6.1v-1.5H10.8v1.5Zm0 8.2h2.225c0.13335 -0.28335 0.2875 -0.54585 0.4625 -0.7875 0.175 -0.24165 0.3625 -0.47915 0.5625 -0.7125h-3.25v1.5Z" stroke-width="0.5"></path>
-                        </svg>
-                        <p> New Payments</p>
+@section('header')
+<h2 class="text-2xl font-semibold">Manage Payments</h2>
+@endsection
+
+@section('content')
+<style>
+    .no-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+
+    .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+</style>
+
+<div class="container mx-auto" x-data="posApp()">
+
+    <div class="bg-white rounded-lg shadow p-4 mb-6">
+        @php
+        if(request('student_id') == null)
+        $stud_disable= 'disabled';
+        else
+        $stud_disable= '';
+
+        $student_f = DB::table('users')->where('student_id',request('student_id'))->first();
+        $student_name_found = $student_f->name??null;
+        $student_id_found = $student_f->id??null;
+        $student_program_found = $student_f->program??null;
+        @endphp
+        <form method="GET" action="{{ route('admin.pos', request()->route('id')) }}" onsubmit="loading(); return true;" class="space-y-2">
+            @foreach(array_merge(request()->except('student_id'), []) as $key => $value)
+            <input type="hidden" name="{{ $key }}" value="{{ $value }}">
+            @endforeach
+            <input
+                type="text"
+                name="student_id"
+                placeholder="Input Student ID"
+                value="{{ request('student_id') }}"
+                class="border-[1.5px] {{$student_name_found ? 'font-semibold text-green-600 border-green-600' : (request('student_id') ? 'text-red-700 border-red-700' : 'border-gray-600')}} rounded-md px-2 py-2 w-full">
+            <p class="text-sm">Student Name:
+                @if($student_name_found)
+                <span class="text-blue-700 font-semibold">{{$student_name_found}}</span>
+                @else
+                @if(request('student_id'))
+                <span class="text-red-700 font-semibold">(not found)</span>
+                @else
+                <span class="text-gray-500">(enter ID to search)</span>
+                @endif
+                @endif
+            </p>
+        </form>
+    </div>
+
+    @if($student_name_found)
+    <!-- POS Layout -->
+    <div class="bg-white rounded-t-md grid grid-cols-1 md:grid-cols-[2fr_1fr] gap-4">
+        <!-- POS Table (Left) -->
+        <div class="space-y-6">
+            <div class="bg-gray-50 rounded-lg shadow p-4 overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="bg-gray-100">
+                            <th class="px-4 py-2 border">Fee</th>
+                            <th class="px-4 py-2 border">Due Date</th>
+                            <th class="px-4 py-2 border">Amount</th>
+                            <th class="px-4 py-2 border">Penalty</th>
+                            <th class="px-4 py-2 border">Subtotal</th>
+                            <th class="px-4 py-2 border">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <template x-for="item in cart" :key="item.id">
+                            <tr>
+                                <td class="px-4 py-2 border" x-text="item.name"></td>
+                                <td class="px-4 py-2 border" x-text="item.due"></td>
+                                <td class="px-4 py-2 border">₱ <span x-text="item.amount.toFixed(2)"></span></td>
+                                <td class="px-4 py-2 border">
+                                    <span :class="isPastDue(item.due) ? 'text-red-600 font-semibold' : 'text-gray-400'">
+                                        ₱ <span x-text="item.penalty.toFixed(2)"></span>
+                                    </span>
+                                </td>
+                                <td class="px-4 py-2 border">
+                                    ₱ <span x-text="(item.amount + (isPastDue(item.due) ? item.penalty : 0)).toFixed(2)"></span>
+                                </td>
+                                <td class="px-4 py-2 border text-center">
+                                    <button @click="cart = cart.filter(f => f.id !== item.id)" class="text-red-600 hover:underline">Remove</button>
+                                </td>
+
+                            </tr>
+                        </template>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Right Side: Fees & Checkout -->
+        <div class="space-y-6">
+            <!-- Button to open fees modal -->
+            <div class="bg-gray-50 rounded-lg shadow p-4 flex justify-between items-center">
+                <h2 class="text-lg font-bold">Add Fees</h2>
+                <button @click="openFees = true" class="px-4 py-2 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700">Select Fees</button>
+            </div>
+
+            <!-- Checkout -->
+            <div class="bg-gray-50 rounded-lg shadow p-6">
+                <h2 class="text-lg font-bold mb-4">Checkout</h2>
+                <form method="POST" action="{{ route('admin.pos.payment_submit') }}">
+                    @csrf
+                    <input type="hidden" name="user_id" value="{{  $student_id_found }}">
+                    <input type="hidden" name="student_id" value="{{ request('student_id') }}">
+                    <input type="hidden" name="cart" :value="JSON.stringify(cart)">
+                    <input type="hidden" name="total" :value="total.toFixed(2)">
+
+                    <!-- Totals -->
+                    <div class="flex justify-end mt-2 text-right">
+                        <p class="text-lg font-semibold">Total: ₱ <span x-text="total.toFixed(2)"></span></p>
                     </div>
+
+                    <div class="space-y-3 mt-4">
+                        <!-- Payment Method -->
+                        <div>
+                            <label class="block mb-1 font-semibold">Payment Method</label>
+                            <select x-model="paymentMethod" name="payment_method" class="w-full border rounded p-2">
+                                <option value="cash">Cash</option>
+                                <option value="gcash">Gcash</option>
+                            </select>
+                        </div>
+
+                        <!-- Cash Fields -->
+                        <template x-if="paymentMethod === 'cash'">
+                            <div>
+                                <label class="block mb-1 font-semibold">Money Tendered</label>
+                                <input type="number" step="0.01" x-model="moneyTendered" name="money_tendered" class="w-full border rounded p-2">
+                                <p class="mt-1 text-sm">Change: ₱
+                                    <span x-text="(moneyTendered - total > 0 ? (moneyTendered - total).toFixed(2) : '0.00')"></span>
+                                </p>
+                            </div>
+                        </template>
+
+                        <!-- Gcash Fields -->
+                        <template x-if="paymentMethod === 'gcash'">
+                            <div class="space-y-2">
+                                <div>
+                                    <label class="block mb-1 font-semibold">Gcash Reference Number</label>
+                                    <input type="text" name="gcash_reference" class="w-full border rounded p-2">
+                                </div>
+                                <div>
+                                    <label class="block mb-1 font-semibold">Gcash Name</label>
+                                    <input type="text" name="gcash_name" class="w-full border rounded p-2">
+                                </div>
+                                <div>
+                                    <label class="block mb-1 font-semibold">Money Tendered</label>
+                                    <input type="number" step="0.01" x-model="moneyTendered" name="money_tendered" class="w-full border rounded p-2">
+                                    <p class="mt-1 text-sm">Change: ₱
+                                        <span x-text="(moneyTendered - total > 0 ? (moneyTendered - total).toFixed(2) : '0.00')"></span>
+                                    </p>
+                                </div>
+                            </div>
+                        </template>
+                    </div>
+
+                    <button type="submit" class="w-full mt-4 bg-green-600 text-white px-4 py-2 rounded-lg shadow hover:bg-green-700">
+                        Submit Payment
+                    </button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+    
+    <!-- Modal for Fees -->
+    <div x-show="openFees"
+        class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50"
+        x-transition>
+        <div class="bg-white rounded-lg shadow-lg p-6 w-[50%]" x-data="{ search: '', orgFilter: '' }">
+            <h2 class="text-lg font-bold mb-4">Available Fees</h2>
+
+            <!-- Search and Filter -->
+            <div class="flex flex-col space-y-2 mb-4 ">
+                <!-- Search Input -->
+                <input
+                    type="text"
+                    placeholder="Search fees..."
+                    x-model="search"
+                    class="w-full border rounded px-2 py-1 text-sm focus:ring-2 focus:ring-blue-500">
+
+                <!-- Organization Filter -->
+                <select x-model="orgFilter" class="w-full border rounded px-2 py-1 text-sm focus:ring-2 focus:ring-blue-500">
+                    <option value="">All Organizations</option>
+                    @foreach($organizations as $org)
+                    <option value="{{ $org->id }}">{{ $org->description }}</option>
+                    @endforeach
+                </select>
+            </div>
+
+            <!-- Fee List -->
+            <div class="space-y-2  max-h-[50vh]  overflow-y-auto">
+                @foreach($fees as $fee)
+                <div
+                    x-show="(search === '' || '{{ strtolower($fee->payment) }}'.includes(search.toLowerCase())) 
+                          && (orgFilter === '' || orgFilter == '{{ $fee->organization_id }}')"
+                    class="border rounded p-3 flex justify-between items-center">
+                    <div>
+                        <p class="font-medium">{{ $fee->payment }}</p>
+                        <p class="text-sm text-gray-600">Due: {{ $fee->due }}</p>
+                        <p class="text-sm text-gray-600">Amount: ₱{{ number_format($fee->amount, 2) }}</p>
+                        <p class="text-sm text-gray-600">Penalty: ₱{{ number_format($fee->penalty, 2) }}</p>
+                        <p class="text-xs text-gray-500">Org: {{ DB::table('organization')->where('id', $fee->organization_id)->value('description') }} </p>
+                    </div>
+                    <button
+                        @click="addToCart({id: {{$fee->id}}, name: '{{$fee->payment}}', amount: {{$fee->amount}}, penalty: {{$fee->penalty}}, due: '{{$fee->due}}'})"
+                        :class="{'opacity-50 pointer-events-none': isInCart({{$fee->id}})}"
+                        class="px-3 py-1 text-sm rounded-lg shadow
+                               text-white 
+                               disabled:opacity-50 
+                               bg-blue-600 hover:bg-blue-700">
+                        Add
+                    </button>
+                </div>
+                @endforeach
+            </div>
+
+            <!-- Close Button -->
+            <div class="mt-4 text-right">
+                <button @click="openFees = false" class="px-4 py-2 bg-gray-600 text-white rounded-lg shadow hover:bg-gray-700">
+                    Close
                 </button>
             </div>
         </div>
     </div>
 
-    <div id="modalGcash" class="hidden fixed inset-0 z-50">
-        <div class="absolute inset-0 bg-gray-900 bg-opacity-60 backdrop-blur-sm"></div>
-        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-xl shadow-lg z-10 text-center w-[90%] md:w-[50%]">
-            <div class="flex flex-row justify-between bg-blue-600 rounded-t-xl p-2 text-start text-white text-xl font-bold">
-                <p>GCash Payment</p>
-                <p class="cursor-pointer px-2 hover:text-gray-400">&times;</p>
-            </div>
-            <div class="flex pt-2">
-                <div class="p-6">
-                    <div class="bg-blue-600 rounded-2xl text-white w-[200px] h-[200px] flex items-center justify-center">
-                        <p class="text-4xl font-bold "> GCash</p>
-                    </div>
-                </div>
-                <div class="p-6 space-y-2 w-full">
-                    <div>
-                        <p class="text-sm text-start font-bold ">Enter Gcash Reference Number</p>
-                        <input type="text" class="border border-gray-300 rounded-md p-2 w-full">
-                    </div>
-                    <div>
-                        <p class="text-sm text-start font-bold ">Transaction Type</p>
-                        <select name="" class="border border-gray-300 rounded-md p-2 w-full" id="">
-                            <option value="">PSITS</option>
-                            <option value="">sab</option>
-                            <option value="">tes</option>
-                        </select>
-                    </div>
-                    <div class="flex space-x-2 w-full">
-                        <div class="w-full">
-                            <p class="text-sm text-start font-bold ">Cash Amount</p>
-                            <input type="text" class="border border-gray-300 rounded-md p-2 w-full text-2xl font-bold">
-                        </div>
-                        <div class="w-full">
-                            <p class="text-sm text-start font-bold ">Cash Change</p>
-                            <input readonly value="0.00" type="text" class="border bg-gray-200 text-2xl font-bold border-gray-300 rounded-md p-2 w-full">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="px-2 pb-2 w-full">
-                <button class="w-full bg-green-600 p-2 py-3 font-bold rounded-lg text-white">Submit Gcash Payment</button>
-            </div>
-        </div>
-
-    </div>
-
-
-    <div id="modalCash" class="hidden fixed inset-0 z-50">
-        <div class="absolute inset-0 bg-gray-900 bg-opacity-60 backdrop-blur-sm"></div>
-        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-xl shadow-lg z-10 text-center w-[90%] md:w-[50%]">
-            <div class="flex flex-row justify-between bg-green-600 rounded-t-xl p-2 text-start text-white text-xl font-bold">
-                <p>Cash Payment</p>
-                <p class="cursor-pointer px-2 hover:text-gray-400">&times;</p>
-            </div>
-            <div class="flex pt-2">
-                <div class="p-6">
-                    <div class="bg-green-600 rounded-2xl text-white w-[200px] h-[200px] flex items-center justify-center">
-                        <p class="text-4xl font-bold "> Cash Payment</p>
-                    </div>
-                </div>
-                <div class="p-6 space-y-2 w-full">
-                    <div>
-                        <p class="text-sm text-start font-bold ">Enter Gcash Reference Number</p>
-                        <input type="text" class="border border-gray-300 rounded-md p-2 w-full">
-                    </div>
-                    <div>
-                        <p class="text-sm text-start font-bold ">Transaction Type</p>
-                        <select name="" class="border border-gray-300 rounded-md p-2 w-full" id="">
-                            <option value="">PSITS</option>
-                            <option value="">sab</option>
-                            <option value="">tes</option>
-                        </select>
-                    </div>
-                    <div class="flex space-x-2 w-full">
-                        <div class="w-full">
-                            <p class="text-sm text-start font-bold ">Cash Amount</p>
-                            <input type="text" class="border border-gray-300 rounded-md p-2 w-full text-2xl font-bold">
-                        </div>
-                        <div class="w-full">
-                            <p class="text-sm text-start font-bold ">Cash Change</p>
-                            <input readonly value="0.00" type="text" class="border bg-gray-200 text-2xl font-bold border-gray-300 rounded-md p-2 w-full">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="px-2 pb-2 w-full">
-                <button class="w-full bg-blue-600 p-2 py-3 font-bold rounded-lg text-white">Submit Cash Payment</button>
-            </div>
-        </div>
-
-    </div>
-
-    <div id="modalNewPayment" class=" fixed inset-0 z-50">
-        <div class="absolute inset-0 bg-gray-900 bg-opacity-60 backdrop-blur-sm"></div>
-        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-xl shadow-lg z-10 text-center w-[90%] md:w-[50%]">
-            <div class="flex flex-row justify-between bg-green-600 rounded-t-xl p-2 text-start text-white text-xl font-bold">
-                <p>Cash Payment</p>
-                <p class="cursor-pointer px-2 hover:text-gray-400">&times;</p>
-            </div>
-            <div class="flex pt-2">
-                <div class="p-6">
-                    <div class="bg-green-600 rounded-2xl text-white w-[200px] h-[200px] flex items-center justify-center">
-                        <p class="text-4xl font-bold "> Cash Payment</p>
-                    </div>
-                </div>
-                <div class="p-6 space-y-2 w-full">
-                    <div>
-                        <p class="text-sm text-start font-bold ">Enter Gcash Reference Number</p>
-                        <input type="text" class="border border-gray-300 rounded-md p-2 w-full">
-                    </div>
-                    <div>
-                        <p class="text-sm text-start font-bold ">Transaction Type</p>
-                        <select name="" class="border border-gray-300 rounded-md p-2 w-full" id="">
-                            <option value="">PSITS</option>
-                            <option value="">sab</option>
-                            <option value="">tes</option>
-                        </select>
-                    </div>
-                    <div class="flex space-x-2 w-full">
-                        <div class="w-full">
-                            <p class="text-sm text-start font-bold ">Cash Amount</p>
-                            <input type="text" class="border border-gray-300 rounded-md p-2 w-full text-2xl font-bold">
-                        </div>
-                        <div class="w-full">
-                            <p class="text-sm text-start font-bold ">Cash Change</p>
-                            <input readonly value="0.00" type="text" class="border bg-gray-200 text-2xl font-bold border-gray-300 rounded-md p-2 w-full">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="px-2 pb-2 w-full">
-                <button class="w-full bg-blue-600 p-2 py-3 font-bold rounded-lg text-white">Submit Cash Payment</button>
-            </div>
-        </div>
-
-    </div>
+    @endif
 </div>
+
+<script>
+    function posApp() {
+        return {
+            cart: [],
+            openFees: false,
+            paymentMethod: 'cash',
+            moneyTendered: 0,
+            get total() {
+                return this.cart.reduce((sum, item) => {
+                    const penalty = this.isPastDue(item.due) ? item.penalty : 0;
+                    return sum + item.amount + penalty;
+                }, 0);
+            },
+            addToCart(fee) {
+                if (!this.isInCart(fee.id)) {
+                    this.cart.push(fee);
+                }
+                this.openFees = false;
+            },
+            isInCart(id) {
+                return this.cart.some(f => f.id === id);
+            },
+            isPastDue(due) {
+                const today = new Date().setHours(0, 0, 0, 0);
+                const dueDate = new Date(due).setHours(0, 0, 0, 0);
+                return today > dueDate;
+            }
+        }
+    }
+</script>
 @endsection

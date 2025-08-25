@@ -1,4 +1,4 @@
-<div class="bg-gray-50 p-3 rounded-xl shadow-xl text-center">
+<div class="bg-gray-50 p-3 w-full rounded-xl shadow-xl text-center">
     <h5 class="text-lg font-medium text-gray-700">
         {{ $title }}
         <span 

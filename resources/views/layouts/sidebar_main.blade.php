@@ -5,13 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CCIS FMS</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- Tailwind CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+    <script src="{{ asset('js/tailwind.js') }}"></script>
     <!-- Alpine.js CDN -->
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <!-- Your custom CSS -->
     <!-- Include Font Awesome (if not already) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- In your <head> -->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
     <link rel="stylesheet" href="{{ asset('css/hcalsb.css') }}">
 </head>
@@ -21,15 +26,88 @@
     <div class="relative flex h-full z-50" style="">
         <!-- Sidebar -->
         <div @click="open = !open" :class="open ? 'block' : 'hidden'" class="absolute inset-0 z-2" style=""></div>
-        <div :class="open ? 'translate-x-0' : '-translate-x-full'" class="fixed z-40 inset-y-0 left-0 w-70 bg-blue-900 transform  text-white transition-transform duration-300 ease-in-out md:relative md:translate-x-0 md:block shadow-xl">
-            <div class="p-6 flex flex-col text-center ">
+        <div
+            :class="open ? 'translate-x-0' : '-translate-x-full'"
+            class="fixed z-40 inset-y-0 left-0 w-70 bg-blue-900 transform text-white transition-transform duration-300 ease-in-out md:relative md:translate-x-0 md:block shadow-xl 
+           h-screen overflow-y-auto">
+
+            <div class="p-6 flex flex-col text-center">
                 <img src="{{ asset('ccis_logo.jpg') }}" class="w-[150px] h-[150px] mx-auto rounded-full border border-white" alt="">
                 <p>Welcome to Website</p>
                 <h1 class="text-3xl font-bold text-center font-serif text-gray-300">CCIS FMS</h1>
             </div>
+
             @include('layouts.sidebar_list')
         </div>
+        @if((!auth()->user()->program || !auth()->user()->student_id) && auth()->user()->role==0)
+        <div class="fixed flex justify-center items-center inset-0 z-50 bg-black/40 backdrop-blur-md">
+            <form action="{{route('student.impr_info')}}" method="post" class="w-[90%] md:w-[50%] bg-white rounded-lg">
+                @csrf
+                <div class="flex justify-between bg-gray-200 rounded-t-lg">
+                    <p class="w-full p-2 text-sm">Important Info</p>
+                </div>
+                <div class="p-2">
+                    <div class="flex space-x-4">
+                        <input name="id" type="text" class="w-1/4 border rounded p-2" placeholder="Student ID">
+                        <p class="w-3/4 border p-2 rounded bg-gray-50 text-gray-500">{{auth()->user()->name}}</p>
+                    </div>
+                    <div class="hidden">
+                        <p class="text-xs px-2 pt-1 text-start font-bold ">Department</p>
+                        <select name="dep" class="border border-gray-300 p-2 rounded-md  w-full"
+                            onchange="window.location.href = '{{ route('admin.pos') }}' + '?department=' + this.value; loading()">
+                            <option value="">---Select Department---</option>
+                            @foreach($department as $dep)
+                            <option value="{{ $dep->college }}"
+                                {{ request('department', 'CCIS') == $dep->college ? 'selected' : '' }}>
+                                {{ $dep->college }}
+                            </option>
+                            @endforeach
 
+                        </select>
+                    </div>
+                    <div>
+                        <p class="text-xs px-2 pt-1 text-start font-bold ">Programs</p>
+                        <select
+                            required
+                            onchange=""
+                            name="prog" class="border border-gray-300 p-2 rounded-md w-full">
+                            <option value="">---Select Program---</option>
+                            @forelse($programs as $prog)
+                            <option value="{{ $prog->id }}">
+                                {{ $prog->programs }}
+                            </option>
+                            @empty
+                            <option value="">Select Department First</option>
+                            @endforelse
+                        </select>
+                    </div>
+                </div>
+                @if ($errors->any())
+                <div class="p-2 text-red-600 text-sm">
+                    <ul class="list-disc list-inside">
+                        @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+                @endif
+                <div class="text-end m-2">
+                    <button class="py-2 px-4 bg-blue-400 text-white rounded">Confirm</button>
+                </div>
+            </form>
+
+
+        </div>
+        @endif
+
+        <div id="loading" class="hidden fixed flex justify-center items-center inset-0 z-50 bg-black/40 backdrop-blur-md">
+            <div class="animate-spin p-2 rounded-full bg-transparent border-4 border-t-transparent w-5 h-5">&nbsp;</div>
+        </div>
+        <script>
+            function loading() {
+                document.getElementById('loading').classList.remove("hidden");
+            }
+        </script>
         <div class="flex-1 flex flex-col">
             <nav class="flex items-center justify-between bg-white dark:bg-gray-800 shadow px-4 py-3">
                 <div class="flex items-center  space-x-4">
@@ -86,12 +164,11 @@
                 @yield('content')
 
             </main>
-            <footer class="flex-1 flex justify-center items-end">
-                <p class="text-black">&copy; 2025 CCIS FMS</p>
-            </footer>
+
         </div>
 
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
 </body>
 
